@@ -117,18 +117,34 @@ const Home: React.FC = () => {
                     <li>
                       <div className={classes.dFlexRow}>
                         <img src={item.product.image} alt={item.product.title} />
-
                         <div className={classes.paperProductInfo}>
                           <Typography variant="h5" className={`${classes.productInfoTitle} typography`}>
                             {item.product.title}
                           </Typography>
-
                           <Typography variant="body2" className={`${classes.productInfoPrice} typography`}>
                             R$ {formatCurrency(item.total ? item.total : item.product.price)}
                           </Typography>
+                          <div className={classes.paperQtdyMobile}>
+                            <IconButton
+                              color="primary"
+                              className={classes.paperButtonAdd}
+                              component="span"
+                              onClick={() => handleClick(item.product, "add")}
+                            >
+                              <span className="icon-plus"></span>
+                            </IconButton>
+                            <span className={classes.productInfoQtdy}>{item.quantity}</span>
+                            <IconButton
+                              color="primary"
+                              className={classes.paperButtonAdd}
+                              component="span"
+                              onClick={() => handleClick(item.product, "subtract")}
+                            >
+                              <span className="icon-minus"></span>
+                            </IconButton>
+                          </div>
                         </div>
                       </div>
-
                       <div className={classes.paperQtdy}>
                         <IconButton
                           color="primary"
@@ -163,7 +179,7 @@ const Home: React.FC = () => {
           </div>
         </Fade>
       </Modal>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container className={classes.container}>
         <img src={background} className={classes.background} alt="logo" />
         <section className={classes.header}>
           <div className={classes.headerLeft}>

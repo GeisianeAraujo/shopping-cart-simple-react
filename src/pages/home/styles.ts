@@ -4,6 +4,7 @@ import { fade } from "@material-ui/core/styles/colorManipulator";
 export const useStyles = makeStyles((theme) => ({
   container: {
     height: "100%",
+    maxWidth: 1366,
   },
   background: {
     position: "absolute",
@@ -187,6 +188,11 @@ export const useStyles = makeStyles((theme) => ({
     height: "96%",
     borderTopLeftRadius: 50,
     borderBottomLeftRadius: 50,
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      overflow: "hidden",
+      padding: 20,
+    },
   },
   paperHeader: {
     display: "flex",
@@ -204,8 +210,11 @@ export const useStyles = makeStyles((theme) => ({
   paperButtonAdd: {
     backgroundColor: "#FFFFFF",
     opacity: 0.8,
-    marginTop: "-1px",
-    padding: "6px 7px",
+    width: 20,
+    height: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "7px",
     borderRadius: "50%",
     "&:hover": {
       color: "#fff",
@@ -215,10 +224,23 @@ export const useStyles = makeStyles((theme) => ({
       fontSize: 20,
     },
   },
+  paperQtdyMobile: {
+    alignItems: "center",
+    paddingTop: 15,
+    display: "none",
+
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+    },
+  },
   paperQtdy: {
     display: "flex",
     alignItems: "center",
     paddingRight: 8,
+
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
   },
   dFlexRow: {
     display: "flex",
@@ -264,8 +286,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   paperBody: {
     maxHeight: 575,
+    minWidth: 282,
     overflowY: "auto",
-    padding: 15,
+    padding: "15px 0",
     margin: 0,
     "& li": {
       display: "flex",
